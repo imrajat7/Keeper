@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { colors } from "utility/colors";
 
 const CreateNote = ({ onAdd }) => {
     const [note, setNote] = useState({
         title: "",
         content: "",
+        color: colors[0],
     });
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -19,10 +21,11 @@ const CreateNote = ({ onAdd }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onAdd(note);
+        onAdd({ ...note, id: Date.now() });
         setNote({
             title: "",
             content: "",
+            color: null,
         });
     };
 
@@ -35,16 +38,32 @@ const CreateNote = ({ onAdd }) => {
             case 27: {
                 if (note.title || note.content) {
                     setIsExpanded(false);
-                    onAdd(note);
+                    onAdd({ ...note, id: Date.now() });
                     setNote({
                         title: "",
                         content: "",
+                        color: null,
                     });
                 }
                 break;
             }
             default:
                 return;
+        }
+    };
+
+    const handleBlur = (event) => {
+        const { name } = event.target;
+        if (name !== "title" && name !== "content") {
+            setIsExpanded(false);
+            onAdd({ ...note, id: Date.now() });
+            setNote({
+                title: "",
+                content: "",
+                color: null,
+            });
+        } else {
+            setIsExpanded(false);
         }
     };
 
@@ -59,6 +78,7 @@ const CreateNote = ({ onAdd }) => {
                         value={note.title}
                         onChange={handleChange}
                         onKeyDown={handleKeyClick}
+                        // onBlur={handleBlur}
                     />
                 )}
                 <p>
@@ -69,6 +89,7 @@ const CreateNote = ({ onAdd }) => {
                         value={note.content}
                         onChange={handleChange}
                         onKeyDown={handleKeyClick}
+                        // onBlur={handleBlur}
                     ></textarea>
                 </p>
                 <button onClick={handleSubmit}>Add</button>

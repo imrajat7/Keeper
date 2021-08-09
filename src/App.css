@@ -16,11 +16,12 @@ body {
 /* For Header Component */
 
 .header-container {
-    padding: 10px 20px;
+    padding: 6px 12px;
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0 0 2px rgb(114, 114, 114);
 }
 
@@ -28,17 +29,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .ham-icon {
     position: relative;
     top: 4px;
+    transform: scale(0.8);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    transform: scale(0.8);
 }
 
 .logo-ham-container span {
@@ -53,6 +56,47 @@ body {
     font-weight: 500;
 }
 
+.header-searchbar-wrapper {
+    background: #f1f3f4;
+    border-radius: 8px;
+    position: relative;
+    max-width: 720px;
+    border: 1px solid transparent;
+    background: 100ms ease-in, width 100ms ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-searchbar-wrapper button {
+    padding: 0 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    line-height: 0;
+}
+
+.header-searchbar-input {
+    padding: 11px 0;
+    background: transparent;
+    border: none;
+    height: 46px;
+    outline: none;
+    width: 450px;
+}
+
+.body-container {
+    display: flex;
+}
+
+.left-navbar-wrapper {
+    width: 400px;
+}
+
+.notes-wrapper {
+    width: 100%;
+}
 /* For CreateNote Component */
 
 .create-note-container form {
@@ -116,6 +160,7 @@ body {
 .note h1 {
     font-size: 1rem;
     margin-bottom: 6px;
+    color: #202124;
 }
 
 .note p {
@@ -125,12 +170,91 @@ body {
     word-wrap: break-word;
 }
 
-.note button {
+.note-icons-container {
     position: relative;
     float: right;
     color: #f88651;
     border: none;
     background: none;
-    cursor: pointer;
     outline: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    width: 60%;
+    opacity: 0;
+}
+
+.note-icons-container:hover {
+    opacity: 1;
+    transition-duration: 1000ms;
+}
+
+.note-icons-container img {
+    cursor: pointer;
+}
+
+/* For leftNavbar  */
+.left-navbar-container {
+    width: 280px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 64px);
+    position: fixed;
+    top: 70px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.left-navbar-container .active {
+    background: #feefc3;
+    border-radius: 0 24px 24px 0;
+}
+
+.left-navbar-item-container {
+    padding-left: 12px;
+    height: 48px;
+    letter-spacing: 0.01785714em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 1.25rem;
+    font-size: 0.875rem;
+}
+
+.left-navbar-svg {
+    height: 24px;
+    width: 24px;
+    padding: 0 12px;
+    box-sizing: unset;
+    color: #5f6368;
+}
+
+.left-navbar-span {
+    margin-left: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+/* for color selector */
+.color-selector-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid rgb(175, 175, 175);
+    position: absolute;
+    flex-wrap: wrap;
+    width: 150px;
+    bottom: 20px;
+}
+
+.color-selector-color {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgb(175, 175, 175);
+    margin: 2px;
+    cursor: pointer;
 }
