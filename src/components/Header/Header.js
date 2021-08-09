@@ -3,6 +3,7 @@ import KeepLogo from "assets/keep-logo.png";
 import Hamburger from "assets/hamburger.png";
 import Search from "assets/search.svg";
 import Delete from "assets/delete.svg";
+import "./Header.css";
 
 const Header = () => {
     return (

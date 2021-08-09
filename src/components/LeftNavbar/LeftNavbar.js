@@ -5,6 +5,7 @@ import Testing from "assets/testing.svg";
 import EditLabels from "assets/editLabels.svg";
 import Trash from "assets/trash.svg";
 import Archive from "assets/archive.svg";
+import "./LeftNavbar.css";
 
 const navbarItems = [
     { label: "Notes", icon: IdeaLogo, class: "active" },

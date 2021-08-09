@@ -1,0 +1,22 @@
+.label-add-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid rgb(175, 175, 175);
+    position: absolute;
+    flex-wrap: wrap;
+    bottom: 20px;
+    padding: 5px;
+}
+
+.label-add-container input {
+    width: 80%;
+    outline: none;
+}
+
+.label-add-container button {
+    outline: none;
+    cursor: pointer;
+    outline: none;
+    margin: 5px;
+}

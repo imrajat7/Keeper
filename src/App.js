@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // components import
-import Header from "components/Header";
-import CreateNote from "components/CreateNote";
-import Note from "components/Note";
-import LeftNavbar from "components/LeftNavbar";
+import Header from "components/Header/Header";
+import CreateNote from "components/CreateNote/CreateNote";
+import Note from "components/Note/Note";
+import LeftNavbar from "components/LeftNavbar/LeftNavbar";
 function App() {
     const [notes, setNotes] = useState([]);
 
@@ -45,6 +45,10 @@ function App() {
         });
     };
 
+    // const searchNote = (search) => {
+    //     return notes.filter((note) => note.title.includes(search));
+    // };
+
     return (
         <div className="App">
             <Header />
@@ -54,17 +58,20 @@ function App() {
                 </div>
                 <div className="notes-wrapper">
                     <CreateNote onAdd={addNote} />
-                    {notes.map((note, index) => (
-                        <Note
-                            key={index}
-                            id={note.id}
-                            title={note.title}
-                            content={note.content}
-                            onDelete={deleteNote}
-                            color={note.color}
-                            editNote={editNote}
-                        />
-                    ))}
+                    <div>
+                        {notes?.map((note, index) => (
+                            <Note
+                                key={index}
+                                id={note.id}
+                                title={note.title}
+                                content={note.content}
+                                onDelete={deleteNote}
+                                color={note.color}
+                                editNote={editNote}
+                                labels={note?.labels}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

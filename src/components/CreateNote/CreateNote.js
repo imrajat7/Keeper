@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { colors } from "utility/colors";
+import './CreateNote.css';
 
 const CreateNote = ({ onAdd }) => {
     const [note, setNote] = useState({
         title: "",
         content: "",
         color: colors[0],
+        labels: [],
     });
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -26,6 +28,7 @@ const CreateNote = ({ onAdd }) => {
             title: "",
             content: "",
             color: null,
+            labels: [],
         });
     };
 
@@ -43,6 +46,7 @@ const CreateNote = ({ onAdd }) => {
                         title: "",
                         content: "",
                         color: null,
+                        labels: [],
                     });
                 }
                 break;
@@ -52,20 +56,21 @@ const CreateNote = ({ onAdd }) => {
         }
     };
 
-    const handleBlur = (event) => {
-        const { name } = event.target;
-        if (name !== "title" && name !== "content") {
-            setIsExpanded(false);
-            onAdd({ ...note, id: Date.now() });
-            setNote({
-                title: "",
-                content: "",
-                color: null,
-            });
-        } else {
-            setIsExpanded(false);
-        }
-    };
+    // const handleBlur = (event) => {
+    //     const { name } = event.target;
+    //     if (name !== "title" && name !== "content") {
+    //         setIsExpanded(false);
+    //         onAdd({ ...note, id: Date.now() });
+    //         setNote({
+    //             title: "",
+    //             content: "",
+    //             color: null,
+    //             labels: [],
+    //         });
+    //     } else {
+    //         setIsExpanded(false);
+    //     }
+    // };
 
     return (
         <div className="create-note-container">

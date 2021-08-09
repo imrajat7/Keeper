@@ -1,5 +1,6 @@
 import React from "react";
 import { colors } from "utility/colors";
+import "./ColorSelector.css";
 
 const ColorSelector = ({ id, editNote }) => {
     const handleColorClick = (color) => {
